@@ -10,8 +10,11 @@
 
 app.controller('LoginCtrl', function ($scope, $cookies, LoginService, $location, $timeout ) {
 
-	$scope.logged;
-	if(localStorage.getItem('user')!=null){
+	$scope.logged = '';
+	$scope.udata = JSON.parse(localStorage.getItem("user")) || [];
+	//console.log($scope.udata.username);
+	
+	if(localStorage.getItem("user")!== null){
 		$scope.loggedIn = false;
 		$location.path('/');
 	}else{
@@ -19,6 +22,7 @@ app.controller('LoginCtrl', function ($scope, $cookies, LoginService, $location,
 		$location.path('/login');
 	}
 
+	
 	$scope.errors = false;
 
 	$scope.formSubmit = function(){
@@ -28,7 +32,7 @@ app.controller('LoginCtrl', function ($scope, $cookies, LoginService, $location,
 			$timeout(function(){
 				$scope.errors = false;
 			},4000);
-	}	
+	};
 
 });
 
@@ -52,14 +56,14 @@ app.factory('LoginService', function($location){
 
 		return {
 			logIn: function(username, password){
-
+		
 					angular.forEach(users, function(val, index){
 						if(username == val.username && password == val.password){
-							console.log(val.name);
+							//console.log(val.name);
+							localStorage.setItem('user', JSON.stringify({userId: val.userid, username: val.name}));
 							$location.path('/');
-							localStorage.setItem('user', val.username);
 						}else{
-							console.log('login error');
+							//console.log('logging');
 						}
 						return false;
 

@@ -10,17 +10,22 @@
 // angular.module('daneApp')
   app.controller('MainCtrl', function ($scope, $cookies, LoginService, $location) {
 
-    $scope.loggedIn;
+    $scope.loggedIn = '';
     // console.log(localStorage.getItem('user'));
-    ;
+    
     /* Authentication */
-    if(localStorage.getItem('user')!=null){
+    $scope.userLogged = JSON.parse(localStorage.getItem("user")) || [];
+
+    if(localStorage.getItem('user') !== null){
         $scope.loggedIn = true;
     }
     else{
       $scope.loggedIn = false;
       $location.path('/login');
     }
+
+    // $scope.loggedInUser = localStorage.getItem('user');
+
 
     $scope.ticket = [
         {
@@ -79,9 +84,9 @@
     $scope.logout = function(){
           localStorage.removeItem('user');
           $location.path('/login');
-    }
+    };
 
-    $scope.getComments = function(cmt,user) {
+    $scope.getComments = function(cmt) {
     	var date = new Date().getTime();
     	var d = { keys:'1', dates: date, message: cmt, user: $scope.userdata };
         
@@ -90,7 +95,7 @@
         $scope.comments = "";
 
         // localStorage.setItem('userdata', JSON.stringify({userId: 1, name:"EDI WOW"}));        	
-    }
+    };
 
     // $scope.guardCheck();
 
@@ -113,14 +118,14 @@
         restrict: 'A',
         scope: true,
         link:function ($scope, element, attrs){
-                          var a = attrs.cls;
-              if(a=='REGISTRATION'){
+              var a = attrs.cls;
+              if(a ==='REGISTRATION'){
                     element.addClass('registration');
-              }else if(a=='PAY VIA OR'){
+              }else if(a ==='PAY VIA OR'){
                     element.addClass('registration');
               }
         }
-      }
+      };
   });
 
 
