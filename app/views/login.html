@@ -1,0 +1,33 @@
+<div id="container" ng-controller="LoginCtrl">
+  <div class="col-md-8 col-md-offset-2 text-center" id="loginform">
+  	<!-- Form Container -->
+  	<div class="login-form-container col-md-4 pad-y-10 col-md-offset-4 p-rel">
+  		<div class="col-md-12 pad-10 mar-top-25 text-center mar-bot-20 font-white font-12">
+  			<label>
+  				Login to your account
+  			</label>
+  		</div>
+  		<form  ng-submit="formSubmit()">
+  			<div class="form-control h-auto">
+  				<span class="d-block pad-y-10">
+  					<input type="text" required name="" class="pad-10 full-w l-height-15  border-rad-5" ng-model="username">
+  				</span>
+  					
+  				<span class="d-block pad-y-10">
+  					<input type="password" required name="" class="pad-10 full-w l-height-15  border-rad-5" ng-model="password">	
+  				</span>
+			
+				<!-- ERROR  -->
+			  	<div   class="col-md-12 minh-125 pad-left-0 pad-right-0">
+			  		<div ng-if="errors" class="alert alert-warning mar-bot-30">
+			  			Invalid Login
+			  		</div>
+			  	</div>
+		   		<input type="submit"  class="pad-y-15 login-submit full-w l-height-35 font-white font-n font-13" name="" value="SUBMIT">
+
+		   	</div>	    		
+	  	</form>
+  	</div>
+  	
+  </div>
+</div>  
