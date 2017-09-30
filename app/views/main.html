@@ -12,7 +12,7 @@
           <div class="col-md-12 pad-0 mar-0">
             <div class="row  mar-right-0 sidebar-head text-left pad-y-10 mar-top-0 min-height-66 min-width-363" >
               <span class="font-white pad-10 font-22 font-b ">
-                <label class="mar-top-13 font-b">Open Tickets (10)</label>
+                <label class="mar-top-13 font-b">Open Tickets ({{ticketNum}})</label>
               </span>
             </div>
 
@@ -23,7 +23,7 @@
             <div class="row tickets  mar-right-0 p-rel minh-350">
               <div class="col-md-12 pad-0 ">
                 <div class="col-md-12 mar-y-20 border-bot-gray" ng-repeat="t in ticket">
-                  <div class="col pad-5 ticket-list" view-data  did="{{t}}"  >
+                  <div class="col pad-5 ticket-list" view-data link="/ticket/{{t.ticketId}}"  did="{{t}}"  >
                     <div class="col-md-8" >
                       <span class="font-12">
                        {{t.issue}}
@@ -53,7 +53,7 @@
         <!-- Sidebar Ends -->
 
          <!-- Main -->
-        <div class="col-md-9 pad-15 mar-0 text-center main-content-container">
+        <div class="col-md-9 pad-15  pad-right-0 mar-0 text-center main-content-container">
           <div class="col-md-12 full-w main-content minh-550">
               <div class="col-md-12 pad-10" id="data-holder" >
                   <h4 class="col-md-12" >My feburary SOA was not accurate.</h4>
@@ -120,6 +120,11 @@
 
                       <div class="col-md-10 col-md-offset-1  text-right">
                         <input type="button" name="" value="Reply" ng-click="getComments(comments)" class="btn-info btn mar-right-20">
+                        <div ng-repeat="tc in tm">
+             <!--              <ul ng-repeat="tm in tc.conversation" >
+                              <li>{{tm.message}}</li>
+                          </ul> -->
+                        </div>
                       </div>
                                                 
                     </div>

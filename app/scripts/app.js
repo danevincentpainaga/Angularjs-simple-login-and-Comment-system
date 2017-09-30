@@ -31,6 +31,11 @@ var app = angular.module('daneApp', [
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .when('/ticket/:ticketID', {
+        templateUrl: 'views/ticketView.html',
+        controller: 'TicketViewCtrl',
+        controllerAs: 'ticketView'
+      })
       .when('/login', {
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
@@ -40,3 +45,4 @@ var app = angular.module('daneApp', [
         redirectTo: '/'
       });
   });
+

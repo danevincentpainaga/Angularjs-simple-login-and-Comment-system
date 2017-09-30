@@ -12,7 +12,6 @@ app.controller('LoginCtrl', function ($scope, $cookies, LoginService, $location,
 
 	$scope.logged = '';
 	$scope.udata = JSON.parse(localStorage.getItem("user")) || [];
-	//console.log($scope.udata.username);
 	
 	if(localStorage.getItem("user")!== null){
 		$scope.loggedIn = false;
@@ -43,13 +42,15 @@ app.factory('LoginService', function($location){
 						userid:1,
 						username:"dane",
 						password:"password",
-						name:"Dane"
+						name:"Dane Vincent Painaga",
+						photo:'/images/naruto.jpg'
 					},
 					{
 						userid:2,
 						username:"chuckie",
 						password:"password",
-						name:"Chuckie"
+						name:"Chuckie Cowboy",
+						photo:'/images/naruto2.jpg'
 					}
 
 				];
@@ -60,7 +61,7 @@ app.factory('LoginService', function($location){
 					angular.forEach(users, function(val, index){
 						if(username == val.username && password == val.password){
 							//console.log(val.name);
-							localStorage.setItem('user', JSON.stringify({userId: val.userid, username: val.name}));
+							localStorage.setItem('user', JSON.stringify({userId: val.userid, username: val.name, image: val.photo}));
 							$location.path('/');
 						}else{
 							//console.log('logging');
