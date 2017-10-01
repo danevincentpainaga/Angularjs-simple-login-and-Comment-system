@@ -9,7 +9,8 @@
  */
 
 
-app.controller('TicketViewCtrl', ['$scope','$http', '$routeParams','$location','messages', function ($scope, $http, $routeParams, $location, messages) {
+app.controller('TicketViewCtrl', ['$scope','$http', '$routeParams','$location', 
+	function ($scope, $http, $routeParams, $location) {
 	// console.log($routeParams);
     $scope.loggedIn = '';
 
@@ -99,7 +100,7 @@ app.controller('TicketViewCtrl', ['$scope','$http', '$routeParams','$location','
 	   			department:conversation.department,
 	   			healthTopic:conversation.help_topic,
 	   		};
-	   		messages.getMessage(conversation.message);
+	   		
 
 	   		$scope.tickets.push(conversation);
 	   		$scope.loadedMsg = conversation.message;
