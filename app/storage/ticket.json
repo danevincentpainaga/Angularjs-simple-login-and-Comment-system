@@ -4,12 +4,17 @@
        {
         	"name":"ACCOUNT BILLING",
         	"id":1,
-        	"status":"Open",
+            "issue":"My feb 2017 SOA is not accurate. Please help. Cant Proceed unless fixed",
+        	"status":"open",
         	"assign_to":[
         		{
         			"userid":1,
         			"name":"Dane"
-        		}
+        		},
+                {
+                    "userid":2,
+                    "name":"Chuckie"
+                }
         	],
         	"department":"GK Accounting",
         	"help_topic":"Account Billing",
@@ -35,6 +40,13 @@
       {
         	"name":"REGISTRATION",
         	"id":2,
+            "issue":"Please fix this problem",
+            "status":"open",
+            "assign_to":[
+                
+            ],
+            "department":"GK Registration",
+            "help_topic":"Account Registration",
         	"message":[
         		{
         			"id":3,
@@ -50,6 +62,32 @@
         		}
         		
         	]
+      },
+        {
+            "name":"REGISTRATION",
+            "id":3,
+            "issue":"My january 2017 SOA is not accurate. Please help.",
+            "status":"open",
+            "assign_to":[
+                
+            ],
+            "department":"GK Accounting",
+            "help_topic":"Account Billing",
+            "message":[
+                {
+                    "id":3,
+                    "userid":3,
+                    "name":"Maria Carey",
+                    "message":"This is a comment"
+                },
+                {
+                    "id":4,
+                    "userid":2,
+                    "name":"Bruno",
+                    "message":"Replied to a comment"
+                }
+                
+            ]
       }
   ]
 }

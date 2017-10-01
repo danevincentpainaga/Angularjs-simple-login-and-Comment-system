@@ -10,22 +10,23 @@
         <!-- Sidebar -->
         <div class="col-md-3 pad-0 mar-0">
           <div class="col-md-12 pad-0 mar-0">
-            <div class="row  mar-right-0 sidebar-head text-left pad-y-10 mar-top-0 min-height-66 min-width-363" >
+            <div class="row  mar-right-0 sidebar-head text-left pad-y-10 mar-top-0 min-height-66 min-width-363  col-sm-12" id="open-tickets">
               <span class="font-white pad-10 font-22 font-b ">
-                <label class="mar-top-13 font-b">Open Tickets ({{ticketNum}})</label>
+                <label class="mar-top-13 font-b" >Open Tickets ({{ticketNum}})</label> 
               </span>
+              <span class="glyphicon glyphicon-triangle-bottom" id="arrow" ng-click="display()" ></span>
             </div>
 
-            <div class="row tickets mar-right-0 pad-10 pad-left-10 border-bot-gray">
-              Today
-            </div>
 
-            <div class="row tickets  mar-right-0 p-rel minh-350">
+            <div class="row tickets  mar-right-0 p-rel minh-350" ng-hide="show">
+            <div class="row tickets mar-right-0 pad-10 pad-left-10 border-bot-gray" >
+              <label id="day">Today</label>
+            </div>
               <div class="col-md-12 pad-0 ">
-                <div class="col-md-12 mar-y-20 border-bot-gray" ng-repeat="t in ticket">
+                <div class="col-md-12 mar-y-20 border-bot-gray" ng-repeat="t in ticket" id="ticketData"  >
                   <div class="col pad-5 ticket-list" view-data link="/ticket/{{t.ticketId}}"  did="{{t}}"  >
-                    <div class="col-md-8" >
-                      <span class="font-12">
+                    <div class="col-md-8 " >
+                      <span class="font-12 margin-left-18" >
                        {{t.issue}}
                       </span>
                     </div>
@@ -34,8 +35,8 @@
                         {{t.time}}
                       </span>
                     </div>
-                    <div class="col-md-12 pad-y-10">
-                      <label class="label label-danger font-16" ng-model="(t.tName)" color-data  cls={{t.tName}}>
+                    <div class="col-md-12 pad-y-10 " >
+                      <label class="label label-danger font-16 margin-left-18" ng-model="(t.tName)" color-data  cls={{t.tName}}>
                         {{t.tName }}
                       </label>
                     </div>
@@ -52,9 +53,9 @@
         </div>
         <!-- Sidebar Ends -->
 
-         <!-- Main -->
+         <!-- Main  -->
         <div class="col-md-9 pad-15  pad-right-0 mar-0 text-center main-content-container">
-          <div class="col-md-12 full-w main-content minh-550">
+<!--           <div class="col-md-12 full-w main-content minh-550">
               <div class="col-md-12 pad-10" id="data-holder" >
                   <h4 class="col-md-12" >My feburary SOA was not accurate.</h4>
                   <label class="col-md-12" >data Holder</label>
@@ -77,7 +78,7 @@
                       </div>
                       <div id="data" class="col-md-4" style="float: left;">
                               <label class="lbl-data">Department:</label><br />
-                              <label class="lbl-data">Health Topic:</label><br />
+                              <label class="lbl-data">Help Topic:</label><br />
                               <label class="lbl-data">Assigned To:</label><br />
                               <label class="lbl-data">Last Reply:</label><br />
                       </div>
@@ -94,11 +95,11 @@
                             <button class="btn-success btn">CLOSE</button>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
               </div>
 
               <div class = "col-md-12 pad-10 text-left pad-x-20" id="conversation">
-                  <label id="lbl-conversation">Converstation</label><br />
+                <!--   <label id="lbl-conversation">Converstation</label><br />
                   <div id="col-md-12 contents">
                     <div class="col-md-12">
                         <ul ng-controller="MainCtrl" ng-repeat="data in datas track by $index">
@@ -115,20 +116,20 @@
                       <div class="col-md-8 col-md-offset-2 text-center pad-y-10">
                         <input ng-controller="UserCtrl" type="hidden" name="user" value="userdata.name">
                         <textarea ng-model="comments"  id="comment-box"></textarea>
-                        <!-- <input type="text" name="" ng-model="comments"  id="comment-box"> -->
+                        <input type="text" name="" ng-model="comments"  id="comment-box">
                       </div>
 
                       <div class="col-md-10 col-md-offset-1  text-right">
                         <input type="button" name="" value="Reply" ng-click="getComments(comments)" class="btn-info btn mar-right-20">
                         <div ng-repeat="tc in tm">
-             <!--              <ul ng-repeat="tm in tc.conversation" >
+                          <ul ng-repeat="tm in tc.conversation" >
                               <li>{{tm.message}}</li>
-                          </ul> -->
+                          </ul>
                         </div>
                       </div>
                                                 
-                    </div>
-                  </div> 
+                    </div> -->
+                  </div>
 
 
               </div>

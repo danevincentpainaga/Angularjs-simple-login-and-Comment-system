@@ -89,6 +89,19 @@ body {
     border-bottom: 0;
   }
 }
+@media screen and (max-width: 540px){
+      textarea{
+          max-width: 347px!important;
+      }
+      #open-tickets{
+          min-width: 103%!important;
+      }
+      #content-holder{
+          margin-left: -10px!important;
+      }
+
+}
+
 
 /*
   Custom CSS
@@ -379,6 +392,9 @@ body { padding-top: 50px; }
 .mar-top-15{
   margin-top: 15px!important;
 }
+.margin-left-18{
+    margin-left: -18px!important;
+}
 .mar-top-20{
   margin-top: 20px!important;
 }
@@ -430,6 +446,7 @@ body { padding-top: 50px; }
 .mar-left-0{
   margin-left: 0px!important
 }
+
 
 .mar-neg-10{
   margin: -10px!important;
@@ -596,19 +613,12 @@ body { padding-top: 50px; }
 }
 
 #data{
-    .lbl-data{
-      /*float: left;*/
-      text-align: left;
-      font-weight: normal;
-    }
-    .lbl-data2{
-      font-weight: normal;
-      /*margin-left: 95px;*/
-    }
+
 }
 #support{
   color: #fafafa;
   margin-top: 17px;
+  cursor: pointer;
 }
 #conversation{
       background-color: #fafafa;
@@ -652,4 +662,34 @@ textarea{
 
 .registration{
     background-color: yellow;
+}
+#day{
+    margin-left: 15px;
+    font-weight: normal;
+}
+#arrow{
+    margin-top: 25px;
+    cursor: pointer!important;
+    float: right;
+    margin-right: 20px;
+}
+#open-tickets{
+    min-width: 100%!important;
+}
+
+ul{
+  list-style-type:none!important;
+}
+.lbl-data{
+/*float: left;*/
+  float: left;
+  font-weight: normal;
+  margin-top: -5px!important;
+
+
+}
+.lbl-data2{
+  float: left;
+  font-weight: normal;
+  margin-top: -5px!important;
 }

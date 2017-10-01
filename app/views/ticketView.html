@@ -3,58 +3,27 @@
       >
 </ng-include>
 
-<div class="model-container" ng-repeat="ticket in tickets track by $index">
-      
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="model-stats">
-                        <h3>{{ ticket.name }}</h3>
-                        <div ng-repeat="assign_to in ticket.assign_to">
-                          <label style="margin-left: 107px; font-weight: normal;">Assign To:{{assign_to.name}}</label>
-                        </div>
-                        
-                        <!-- <h3>{{ ticket.message }}</h3> -->
-                        <ul ng-controller="TicketViewCtrl" ng-repeat="message in ticket.message track by $index">
-                          <li style="list-style-type: none;">
-                            <label id="name" style="float: left; list-style-type: none; margin-left: -55px ">
-                              {{message.name}}
-                            </label>
-
-                            <label style="margin-left: 107px; font-weight: normal;">{{message.message}}</label>
-                          </li>
-                          <li style="list-style-type: none;"><label id="time">{{ message.dates | date:'HH:mma' }}</label></li>
-                        </ul>
-                    </div>
-                    <!-- div class="model-motto">
-                        <p>{{ model.motto }}</p>
-                    </div> -->
-                </div>
-            </div>
-      
- </div>
-
-
  <div class="container full-w mar-neg-right-15" ng-if="loggedIn">
    <div class="row">
      <div class="col-md-12 pad-0">
         
         <!-- Sidebar -->
-       <!--  <div class="col-md-3 pad-0 mar-0">
+        <div class="col-md-3 pad-0 mar-0">
           <div class="col-md-12 pad-0 mar-0">
-            <div class="row  mar-right-0 sidebar-head text-left pad-y-10 mar-top-0 min-height-66 min-width-363" >
+            <div class="row  mar-right-0 sidebar-head text-left pad-y-10 mar-top-0 min-height-66 min-width-363" id="open-tickets">
               <span class="font-white pad-10 font-22 font-b ">
                 <label class="mar-top-13 font-b">Open Tickets ({{ticketNum}})</label>
               </span>
+              <span class="glyphicon glyphicon-triangle-bottom" id="arrow" ng-click="display()" ></span>
             </div>
 
-            <div class="row tickets mar-right-0 pad-10 pad-left-10 border-bot-gray">
-              Today
+            <div class="row tickets  mar-right-0 p-rel minh-350" ng-hide="show">
+            <div class="row tickets mar-right-0 pad-10 pad-left-10 border-bot-gray" >
+              <label id="day">Today</label>
             </div>
-
-            <div class="row tickets  mar-right-0 p-rel minh-350">
               <div class="col-md-12 pad-0 ">
                 <div class="col-md-12 mar-y-20 border-bot-gray" ng-repeat="t in ticket">
-                  <div class="col pad-5 ticket-list" view-data  did="{{t}}"  >
+                  <div class="col pad-5 ticket-list" view-data link="/ticket/{{t.ticketId}}"  did="{{t}}"  >
                     <div class="col-md-8" >
                       <span class="font-12">
                        {{t.issue}}
@@ -80,15 +49,96 @@
             </div>
 
           </div>
-        </div> -->
+        </div>
         <!-- Sidebar Ends -->
 
          <!-- Main -->
-        <div class="col-md-12 pad-15  pad-right-0 mar-0 text-center main-content-container">
-        	<div class="col-md-12">
-        		<h1>Tickets</h1>
-        	</div>
-      
+        <div class="col-md-9 pad-15  pad-right-0 mar-0 text-center main-content-container">
+          <div class="col-md-12 full-w main-content minh-550" id="content-holder">
+              <div class="col-md-12 pad-10" id="data-holder" >
+                  <h4 class="col-md-12" >{{ticketData.issue}}</h4>
+                  <label class="col-md-12" >data Holder</label>
+                  <label class="col-md-12" >Account Billing</label>
+                  <div class="row">
+                    <div class="col-md-12" ng-controller="TicketViewCtrl" >
+
+                      <ul class="col-md-2">
+                              <li><label class="lbl-data">Status:</label></li><br />
+                             <li> <label class="lbl-data">Name:</label></li><br />
+                              <li><label class="lbl-data">Mobile No:</label></li><br />
+                              <li><label class="lbl-data">IMEI:</label></li><br />
+                              <li><label class="lbl-data">Email Address:</label></li><br />
+                      </ul>
+                      <ul class="col-md-3">
+                             <li><label class="lbl-data2" id="Status">{{ticketData.status}}</label></li><br />
+                             <li><label class="lbl-data2" id="">{{ticketData.name}}</label></li><br />
+                             <li><label class="lbl-data2">0{{ticketData.mobile}}</label></li><br />
+                             <li><label class="lbl-data2">092323457</label></li><br />
+                             <li><label class="lbl-data2">{{ticketData.email}}</label></li><br />
+                      </ul>
+                        <ul class="col-md-2">   
+                            <li><label class="lbl-data">Department:</label></li><br />
+                            <li><label class="lbl-data">Help Topic:</label></li><br />
+                            <li><label class="lbl-data">Assigned To:</label></li><br />
+                            <li><label class="lbl-data">Last Reply:</label></li><br />
+                      </ul>
+
+                      <ul class="col-md-3">
+                             <li><label class="lbl-data2" id="Status">{{ ticketData.department }} </label></li><br />
+                             <li><label class="lbl-data2" id="">{{ ticketData.healthTopic }} </label></li><br />
+                             <li><label class="lbl-data">
+                                <a ng-if="!ticketData.assignedTo.length">
+                                  Select User
+                                </a>
+                                <a ng-if="ticketData.assignedTo" ng-repeat="ticketInfo in ticketData.assignedTo">  
+                                    {{ ticketInfo.name }}
+                                    {{$last ? '' : ', '}}
+                                </a>
+                              </label>
+                              </li><br />
+                             <li><label class="lbl-data2">open</label></li><br />
+                     </ul>
+
+                      <div id="btn" class="col-md-12 text-left mar-y-10">
+                            <button class="btn-info btn">MARK AS DUPLICATE</button>
+                            <button class="btn-warning btn">TRANSFER</button>
+                            <button class="btn-success btn">CLOSE</button>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class = "col-md-12 pad-10 text-left pad-x-20" id="conversation">
+                  <label id="lbl-conversation">Converstation</label><br />
+                  <div id="col-md-12 contents">
+                    <div class="col-md-12"  ng-repeat="ticket in tickets track by $index" >
+                        <ul ng-repeat="message in ticket.message track by $index">
+                          <li style="list-style-type: none;">
+                            <label id="name" style="float: left; list-style-type: none; margin-left: -55px ">
+                              {{message.name}}
+                            </label>
+
+                            <label style="margin-left: 107px; font-weight: normal;">{{message.message}}</label>
+                          </li>
+                          <li style="list-style-type: none;"><label id="time">{{ message.dates | date:'HH:mma' }}</label></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-12 pad-y-10">
+                      <div class="col-md-8 col-md-offset-2 text-center pad-y-10">
+                        <input ng-controller="UserCtrl" type="hidden" name="user" value="userdata.name">
+                        <textarea ng-model="comments" id="comment-box"></textarea>
+                      </div>
+
+                      <div class="col-md-10 col-md-offset-1  text-right">
+                        <input type="button" name="" value="Reply" ng-click="getComments(comments)" class="btn-info btn mar-right-20">
+                      </div>
+                                                
+                    </div>
+                  </div> 
+
+
+              </div>
+          </div>
         </div>
         <!-- Main Ends -->
      </div>

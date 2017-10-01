@@ -40,17 +40,21 @@ app.factory('LoginService', function($location){
 			var users = [
 					{
 						userid:1,
-						username:"dane",
+						username:"Dane",
 						password:"password",
 						name:"Dane Vincent Painaga",
-						photo:'/images/naruto.jpg'
+						number:9222374223,
+						photo:'/images/naruto.jpg',
+						email:'danevincentpainaga@gmail.com'
 					},
 					{
 						userid:2,
-						username:"chuckie",
+						username:"Chuckie",
 						password:"password",
 						name:"Chuckie Cowboy",
-						photo:'/images/naruto2.jpg'
+						number:9253554223,
+						photo:'/images/naruto2.jpg',
+						email:'cowboy@gmail.com'
 					}
 
 				];
@@ -61,7 +65,17 @@ app.factory('LoginService', function($location){
 					angular.forEach(users, function(val, index){
 						if(username == val.username && password == val.password){
 							//console.log(val.name);
-							localStorage.setItem('user', JSON.stringify({userId: val.userid, username: val.name, image: val.photo}));
+							localStorage.setItem('user', JSON.stringify(
+									{
+										userId: val.userid,
+										username: val.username,
+										name: val.name,
+										image: val.photo,
+										mobile: val.number, 
+										email: val.email
+									}
+								)
+							);
 							$location.path('/');
 						}else{
 							//console.log('logging');

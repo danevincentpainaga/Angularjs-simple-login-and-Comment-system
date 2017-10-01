@@ -27,9 +27,6 @@
       $location.path('/login');
     }
 
-    // $scope.loggedInUser = localStorage.getItem('user');
-
-
     $scope.ticket = [
         {
           ticketId: 1,
@@ -63,40 +60,40 @@
                   message:"Lets Rock",
                 }
           ],
-        },
-        {
-          ticketId: 4,
-          issue:'No SMS recieved',
-          tName: 'REGISTRATION',
-          time: '12:02 PM',
-          conversation:[
-                {
-                  message:"wweeeeee",
-                }
-          ],
-        },
-		    {
-          ticketId: 5,
-          issue:'Issue in dragging voucher',
-          tName: 'ACCOUNT BILLING',
-          time: '3:03 PM',
-          conversation:[
-                            {
-                  message:"wweeeeee",
-                }
-          ],
-        },
-        {
-          ticketId: 6,
-          issue:'Issue in dragging voucher',
-          tName: 'PAY VIA OR',
-          time: '3:03 PM',
-          conversation:[
-                            {
-                  message:"wweeeeee",
-                }
-          ],
         }
+      //   {
+      //     ticketId: 4,
+      //     issue:'No SMS recieved',
+      //     tName: 'REGISTRATION',
+      //     time: '12:02 PM',
+      //     conversation:[
+      //           {
+      //             message:"wweeeeee",
+      //           }
+      //     ],
+      //   },
+		    // {
+      //     ticketId: 5,
+      //     issue:'Issue in dragging voucher',
+      //     tName: 'ACCOUNT BILLING',
+      //     time: '3:03 PM',
+      //     conversation:[
+      //                       {
+      //             message:"wweeeeee",
+      //           }
+      //     ],
+      //   },
+      //   {
+      //     ticketId: 6,
+      //     issue:'Issue in dragging voucher',
+      //     tName: 'PAY VIA OR',
+      //     time: '3:03 PM',
+      //     conversation:[
+      //                       {
+      //             message:"wweeeeee",
+      //           }
+      //     ],
+      //   }
     ];
    
     // localStorage.setItem('userdata', JSON.stringify({userId: 1, name:"EDI WOW"}));  
@@ -115,6 +112,11 @@
     //     window.location.href = '#!/login';
     //   }
     // }
+
+    $scope.display = function(){
+        $scope.show === false ? $scope.show = true :  $scope.show = false;
+    }
+
     $scope.logout = function(){
           localStorage.removeItem('user');
           $location.path('/login');
