@@ -3,6 +3,16 @@
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.16.0.
 
+## Clone this project
+	git@github.com:danevincentpainaga/dane.git
+	cd dane/
+	npm install
+	grunt serve	
+
+## Node
+	version: 7.8.0
+	npm: 4.2.0
+
 ## Build & development
 
 Run `grunt` for building and `grunt serve` for preview.
