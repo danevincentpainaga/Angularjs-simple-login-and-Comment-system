@@ -28,3 +28,13 @@ Running `grunt test` will run the unit tests with karma.
 	Install compass
 	  sudo apt-get install ruby-compass
 	  sudo gem install compass
+
+## User Guide
+   For demo purposes you can use any of the account:
+   
+   username:dane
+   password:password
+
+   username:chuckie
+   password:password
+

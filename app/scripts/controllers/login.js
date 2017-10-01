@@ -49,7 +49,7 @@ app.factory('LoginService', function($location){
 					},
 					{
 						userid:2,
-						username:"Chuckie",
+						username:"chuckie",
 						password:"password",
 						name:"Chuckie Cowboy",
 						number:9253554223,
