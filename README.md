@@ -3,6 +3,11 @@
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
 version 0.16.0.
 
+## Install yo, grunt-cli and bower globally for all users on your machine
+	sudo npm install -g yo grunt-cli bower
+	sudo npm install -g generator-angular generator-karma
+	sudo npm install -g generator-angular generator-karma
+
 ## Clone this project
 	git clone git@github.com:danevincentpainaga/dane.git
 	cd dane/
