@@ -4,7 +4,7 @@ This project is generated with [yo angular generator](https://github.com/yeoman/
 version 0.16.0.
 
 ## Clone this project
-	git@github.com:danevincentpainaga/dane.git
+	git clone git@github.com:danevincentpainaga/dane.git
 	cd dane/
 	npm install
 	grunt serve	
